@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>东升国际 · 知识库索引</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', 'Noto Serif SC', serif;
+      background: #faf8f5;
+      color: #2e2b26;
+      line-height: 1.8;
+      padding: 2rem 1.2rem;
+    }
+
+    .page {
+      max-width: 880px;
+      margin: 0 auto;
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+      border-radius: 28px;
+      padding: 2.5rem 2rem;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 1rem 0.6rem; }
+      .page { padding: 1.6rem 1.2rem; border-radius: 18px; }
+    }
+
+    /* 目录感布局 */
+    .masthead {
+      border-bottom: 2px solid #e5ddd6;
+      padding-bottom: 1.4rem;
+      margin-bottom: 2rem;
+    }
+
+    .masthead h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #3d352e;
+    }
+
+    .masthead .sub {
+      font-size: 0.95rem;
+      color: #7b7168;
+      margin-top: 0.4rem;
+      border-left: 3px solid #cbb7a4;
+      padding-left: 0.9rem;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9b8c7e;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px dashed #d9cfc3;
+      padding-bottom: 0.2rem;
+    }
+
+    .info-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .card-item {
+      background: #faf6f0;
+      border-radius: 14px;
+      padding: 1.2rem 1.5rem;
+      border-left: 6px solid #d5c4b1;
+      transition: background 0.2s ease;
+    }
+
+    .card-item:hover {
+      background: #f5eee6;
+    }
+
+    .card-item h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #3d352e;
+      margin-bottom: 0.3rem;
+    }
+
+    .card-item p {
+      font-size: 0.95rem;
+      color: #4d443b;
+      margin: 0.4rem 0 0.2rem;
+    }
+
+    .card-item .meta {
+      font-size: 0.85rem;
+      color: #8c7e72;
+      margin-top: 0.5rem;
+      display: inline-block;
+      background: #ece4db;
+      padding: 0.15rem 0.8rem;
+      border-radius: 30px;
+    }
+
+    .quote-block {
+      background: #f3efe9;
+      padding: 1.2rem 1.6rem;
+      border-radius: 16px;
+      margin: 1.8rem 0;
+      border-left: 8px solid #c2ad97;
+      font-style: normal;
+      color: #3d352e;
+    }
+
+    .quote-block .attribution {
+      display: block;
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+      color: #7b6e62;
+    }
+
+    .tip-box {
+      background: #f6f1eb;
+      border-radius: 16px;
+      padding: 1rem 1.5rem;
+      border: 1px solid #ddd0c2;
+      margin: 1.2rem 0;
+    }
+
+    .tip-box strong {
+      color: #5f4d3b;
+    }
+
+    .faq-summary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    @media (max-width: 540px) {
+      .faq-summary {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .faq-item {
+      padding: 0.4rem 0;
+      border-bottom: 1px dotted #ddd2c7;
+    }
+
+    .faq-item .q {
+      font-weight: 500;
+      color: #3d352e;
+    }
+
+    .faq-item .a {
+      font-size: 0.9rem;
+      color: #5f554b;
+      margin-top: 0.1rem;
+    }
+
+    .related-links {
+      margin-top: 2.2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #e3dbd0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.6rem;
+    }
+
+    .related-links a {
+      color: #5f4d3b;
+      text-decoration: none;
+      border-bottom: 1px solid #cbb7a4;
+      padding-bottom: 1px;
+      font-size: 0.95rem;
+    }
+
+    .related-links a:hover {
+      color: #2e2b26;
+      border-bottom-color: #2e2b26;
+    }
+
+    .footer-note {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #a69889;
+      border-top: 1px solid #ede7df;
+      padding-top: 1.4rem;
+    }
+
+    .inline-link {
+      color: #5f4d3b;
+      text-decoration: none;
+      border-bottom: 1px solid #cbb7a4;
+      padding-bottom: 1px;
+      font-weight: 400;
+    }
+
+    .inline-link:hover {
+      color: #1f1c18;
+      border-bottom-color: #1f1c18;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e5ddd6;
+      margin: 1.6rem 0;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="masthead">
+    <h1>东升国际 · 知识库</h1>
+    <div class="sub">快速识别网站用途 · 信息索引与引导</div>
+  </div>
+
+  <!-- 说明区：网站定位 -->
+  <div class="section-label">▪ 说明</div>
+  <p style="margin-bottom:1.2rem; font-size:1.05rem;">
+    「<a href="https://china-dongshengguoji.com" class="inline-link">东升国际</a>」是一个面向特定领域的信息聚合与服务平台。本站围绕核心业务提供结构化的内容索引，帮助访问者快速判断此处是否与自身需求匹配。以下整理了几个主要信息模块，供参考。
+  </p>
+
+  <!-- 目录感卡片 -->
+  <div class="info-grid">
+    <div class="card-item">
+      <h3>业务概览</h3>
+      <p>涉及国际交流、项目协调与资源对接，侧重务实与合作。具体服务内容可查阅站内各栏目。</p>
+      <span class="meta">方向：合作 · 对接</span>
+    </div>
+    <div class="card-item">
+      <h3>信息库索引</h3>
+      <p>常见问题、政策摘要、流程说明等均按主题分类存放，方便按需检索。建议从导航栏进入相应版块。</p>
+      <span class="meta">分类：FAQ · 文档 · 指南</span>
+    </div>
+    <div class="card-item">
+      <h3>动态与公告</h3>
+      <p>站内重要通知、更新记录以及阶段性说明会在此处集中呈现。保持关注可获取最新动向。</p>
+      <span class="meta">更新频率：按需发布</span>
+    </div>
+  </div>
+
+  <!-- 提示区 -->
+  <div class="tip-box">
+    <strong>💡 提示</strong> — 如果您是首次来到本站，建议先浏览「业务概览」与「常见问题」两个区域。大部分疑问可在其中找到解答。若仍需进一步沟通，请使用站内联系通道。
+  </div>
+
+  <!-- 引用块 / 说明语气 -->
+  <div class="quote-block">
+    一个清晰的索引界面，能节省双方的时间。我们所做的，是把信息放在合适的位置，让需要的人能够找到。
+    <span class="attribution">—— 东升国际 · 内容说明</span>
+  </div>
+
+  <!-- FAQ 摘要区 -->
+  <div class="section-label" style="margin-top:1.8rem;">▪ 常见问题摘要</div>
+  <div class="faq-summary">
+    <div class="faq-item">
+      <div class="q">这个网站主要提供什么？</div>
+      <div class="a">围绕东升国际相关的项目介绍、流程指引与参考资料，不涉及直接交易或即时服务。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">信息是否经常更新？</div>
+      <div class="a">依据实际情况整理，重要变动会通过公告区说明。建议定期浏览。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">需要注册或登录吗？</div>
+      <div class="a">当前公开内容可直接阅读，部分功能或需身份验证，以页面提示为准。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">如何联系站方？</div>
+      <div class="a">页面底部或「联系」栏目内提供了相应方式，请参照使用。</div>
+    </div>
+  </div>
+
+  <!-- 相关信息区 -->
+  <div class="section-label" style="margin-top:1.8rem;">▪ 相关信息</div>
+  <div style="display:flex; flex-wrap:wrap; gap:0.6rem 2rem; margin-bottom:1rem;">
+    <span style="background:#f0e9e0; padding:0.1rem 1rem; border-radius:30px; font-size:0.9rem; color:#3d352e;">文档格式：PDF / 网页</span>
+    <span style="background:#f0e9e0; padding:0.1rem 1rem; border-radius:30px; font-size:0.9rem; color:#3d352e;">语言：中文</span>
+    <span style="background:#f0e9e0; padding:0.1rem 1rem; border-radius:30px; font-size:0.9rem; color:#3d352e;">适用对象：合作伙伴 · 关注者</span>
+  </div>
+
+  <div class="related-links">
+    <a href="https://china-dongshengguoji.com">东升国际</a>
+    <a href="#" style="pointer-events:none; opacity:0.7;">站点地图</a>
+    <a href="#" style="pointer-events:none; opacity:0.7;">常见问题</a>
+    <a href="#" style="pointer-events:none; opacity:0.7;">联系说明</a>
+  </div>
+
+  <hr>
+
+  <div class="footer-note">
+    页面仅作索引参考 · 具体内容以 <a href="https://china-dongshengguoji.com" class="inline-link">东升国际</a> 官网为准
+  </div>
+
+</div>
+</body>
+</html>
